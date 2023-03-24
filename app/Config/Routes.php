@@ -46,6 +46,11 @@ use App\Controllers\Pages;
 $routes->get('pages', [Pages::class, 'index']);
 $routes->get('(:segment)', [Pages::class, 'view']);
 
+$routes->group('api', static function ($routes) {
+    $routes->get('users', 'Api\UserController::index');
+});
+
+
 
 /*
  * --------------------------------------------------------------------

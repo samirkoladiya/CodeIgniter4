@@ -47,7 +47,14 @@ $routes->get('pages', [Pages::class, 'index']);
 $routes->get('(:segment)', [Pages::class, 'view']);
 
 $routes->group('api', static function ($routes) {
+
+    $routes->post('users', 'Api\UserController::create');
     $routes->get('users', 'Api\UserController::index');
+    $routes->get('users/(:segment)', 'Api\UserController::show/$1');
+    $routes->put('users/(:segment)', 'Api\UserController::update/$1');
+    $routes->delete('users/(:segment)', 'Api\UserController::delete/$1');
+    //$routes->resource('users');
+
 });
 
 
